@@ -166,7 +166,7 @@ async function generatePDF(data: ClaimData, tier: Tier) {
     y += 10;
     heading("HEARING SCRIPT");
     rule();
-    const script = `Good morning / afternoon, Your Honor. My name is ${data.plName}, and I am the plaintiff in this matter.\n\nI am here today because ${data.defName} owes me $${data.amountTotal} as a result of ${CLAIM_TYPES.find(c => c.id === data.claimType)?.label?.toLowerCase() || "the incident described"}.\n\nOn or about ${data.incidentDate}, ${data.incidentDesc}\n\nI have brought the following evidence to support my claim: ${data.evidence || "documents and records as described in my filing"}.\n\nI am requesting that the court award me $${data.amountTotal} plus any applicable court costs. Thank you.`;
+    const script = `Good morning / afternoon, Your Honor. My name is ${data.plName}, and I am the plaintiff in this matter.\n\nI am here today because ${data.defName} owes me $${data.amountTotal} stemming from ${data.incidentDesc}\n\nI have evidence of this claim, including:\n${data.evidence || "Documentation available upon request"}\n\nI respectfully request judgment in the amount of $${data.amountTotal} plus court costs. Thank you.`; me $${data.amountTotal} plus any applicable court costs. Thank you.`;
     const scriptLines = doc.splitTextToSize(script, W - margin * 2);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
