@@ -382,7 +382,7 @@ export default function Home() {
               <h2 style={{ color: "#0f2850", fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Who are you suing?</h2>
               <p style={{ color: "#888", marginBottom: 28, fontSize: 14 }}>Enter the defendant's information as it appears on any contracts or receipts.</p>
               <label style={lbl}>Defendant's Full Name or Business Name *</label>
-              <input style={inp} value={data.defName} onChange={e => set("defName", e.target.value)} placeholder="e.g. John Smith or ABC Contractors LLC" />
+              <input className="cf-input" value={data.defName} onChange={e => set("defName", e.target.value)} placeholder="e.g. John Smith or ABC Contractors LLC" />
               <label style={lbl}>Defendant Type *</label>
               <div style={{ display: "flex", gap: 12, marginBottom: 18 }}>
                 {(["individual", "business"] as const).map(t => (
@@ -392,11 +392,11 @@ export default function Home() {
                 ))}
               </div>
               <label style={lbl}>Street Address</label>
-              <input style={inp} value={data.defAddress} onChange={e => set("defAddress", e.target.value)} placeholder="123 Main St" />
+              <input className="cf-input" value={data.defAddress} onChange={e => set("defAddress", e.target.value)} placeholder="123 Main St" />
               <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 12 }}>
-                <div><label style={lbl}>City</label><input style={inp} value={data.defCity} onChange={e => set("defCity", e.target.value)} placeholder="City" /></div>
-                <div><label style={lbl}>State</label><input style={inp} value={data.defState} onChange={e => set("defState", e.target.value)} placeholder="CA" /></div>
-                <div><label style={lbl}>ZIP</label><input style={inp} value={data.defZip} onChange={e => set("defZip", e.target.value)} placeholder="90210" /></div>
+                <div><label style={lbl}>City</label><input className="cf-input" value={data.defCity} onChange={e => set("defCity", e.target.value)} placeholder="City" /></div>
+                <div><label style={lbl}>State</label><input className="cf-input" value={data.defState} onChange={e => set("defState", e.target.value)} placeholder="CA" /></div>
+                <div><label style={lbl}>ZIP</label><input className="cf-input" value={data.defZip} onChange={e => set("defZip", e.target.value)} placeholder="90210" /></div>
               </div>
             </>}
 
@@ -419,11 +419,11 @@ export default function Home() {
               <h2 style={{ color: "#0f2850", fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Tell us about the incident</h2>
               <p style={{ color: "#888", marginBottom: 28, fontSize: 14 }}>Be specific — dates, amounts, and facts matter in court.</p>
               <label style={lbl}>Date of Incident *</label>
-              <input style={inp} type="date" value={data.incidentDate} onChange={e => set("incidentDate", e.target.value)} />
+              <input className="cf-input" type="date" value={data.incidentDate} onChange={e => set("incidentDate", e.target.value)} />
               <label style={lbl}>Describe What Happened *</label>
-              <textarea style={{ ...inp, height: 120, resize: "vertical" }} value={data.incidentDesc} onChange={e => set("incidentDesc", e.target.value)} placeholder="Explain the situation clearly — what happened, when, where, and what was agreed upon..." />
+              <textarea className="cf-input" style={{ height: 120, resize: "vertical" }} value={data.incidentDesc} onChange={e => set("incidentDesc", e.target.value)} placeholder="Explain the situation clearly — what happened, when, where, and what was agreed upon..." />
               <label style={lbl}>Evidence You Have</label>
-              <textarea style={{ ...inp, height: 90, resize: "vertical" }} value={data.evidence} onChange={e => set("evidence", e.target.value)} placeholder="e.g. Text messages, receipts, contract, photos of damage, emails..." />
+              <textarea className="cf-input" style={{ height: 90, resize: "vertical" }} value={data.evidence} onChange={e => set("evidence", e.target.value)} placeholder="e.g. Text messages, receipts, contract, photos of damage, emails..." />
             </>}
 
             {/* Step 4 */}
@@ -431,9 +431,9 @@ export default function Home() {
               <h2 style={{ color: "#0f2850", fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Amount in dispute</h2>
               <p style={{ color: "#888", marginBottom: 28, fontSize: 14 }}>Enter the total you are claiming and how it breaks down.</p>
               <label style={lbl}>Total Amount Claimed ($) *</label>
-              <input style={inp} type="number" value={data.amountTotal} onChange={e => set("amountTotal", e.target.value)} placeholder="e.g. 2500" />
+              <input className="cf-input" type="number" value={data.amountTotal} onChange={e => set("amountTotal", e.target.value)} placeholder="e.g. 2500" />
               <label style={lbl}>Amount Breakdown (optional)</label>
-              <textarea style={{ ...inp, height: 100, resize: "vertical" }} value={data.amountBreakdown} onChange={e => set("amountBreakdown", e.target.value)} placeholder="e.g. $1,800 unpaid invoice + $400 late fees + $300 storage costs..." />
+              <textarea className="cf-input" style={{ height: 100, resize: "vertical" }} value={data.amountBreakdown} onChange={e => set("amountBreakdown", e.target.value)} placeholder="e.g. $1,800 unpaid invoice + $400 late fees + $300 storage costs..." />
               <div style={{ background: "#fff8e8", border: "1px solid #f0d88a", borderRadius: 8, padding: "14px 16px", marginTop: 8 }}>
                 <p style={{ color: "#7a5c00", fontSize: 13, margin: 0 }}>💡 <strong>Tip:</strong> Small claims limits vary by state — typically $5,000–$25,000. Check your local court's limit before filing.</p>
               </div>
@@ -444,17 +444,17 @@ export default function Home() {
               <h2 style={{ color: "#0f2850", fontSize: 22, fontWeight: 700, marginBottom: 6 }}>Your information</h2>
               <p style={{ color: "#888", marginBottom: 28, fontSize: 14 }}>This appears on your court documents as the plaintiff.</p>
               <label style={lbl}>Full Legal Name *</label>
-              <input style={inp} value={data.plName} onChange={e => set("plName", e.target.value)} placeholder="Your full name as it appears on ID" />
+              <input className="cf-input" value={data.plName} onChange={e => set("plName", e.target.value)} placeholder="Your full name as it appears on ID" />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                <div><label style={lbl}>Email</label><input style={inp} type="email" value={data.plEmail} onChange={e => set("plEmail", e.target.value)} placeholder="you@email.com" /></div>
-                <div><label style={lbl}>Phone</label><input style={inp} type="tel" value={data.plPhone} onChange={e => set("plPhone", e.target.value)} placeholder="(555) 000-0000" /></div>
+                <div><label style={lbl}>Email</label><input className="cf-input" type="email" value={data.plEmail} onChange={e => set("plEmail", e.target.value)} placeholder="you@email.com" /></div>
+                <div><label style={lbl}>Phone</label><input className="cf-input" type="tel" value={data.plPhone} onChange={e => set("plPhone", e.target.value)} placeholder="(555) 000-0000" /></div>
               </div>
               <label style={lbl}>Street Address</label>
-              <input style={inp} value={data.plAddress} onChange={e => set("plAddress", e.target.value)} placeholder="123 Your Street" />
+              <input className="cf-input" value={data.plAddress} onChange={e => set("plAddress", e.target.value)} placeholder="123 Your Street" />
               <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 12 }}>
-                <div><label style={lbl}>City</label><input style={inp} value={data.plCity} onChange={e => set("plCity", e.target.value)} placeholder="City" /></div>
-                <div><label style={lbl}>State</label><input style={inp} value={data.plState} onChange={e => set("plState", e.target.value)} placeholder="CA" /></div>
-                <div><label style={lbl}>ZIP</label><input style={inp} value={data.plZip} onChange={e => set("plZip", e.target.value)} placeholder="90210" /></div>
+                <div><label style={lbl}>City</label><input className="cf-input" value={data.plCity} onChange={e => set("plCity", e.target.value)} placeholder="City" /></div>
+                <div><label style={lbl}>State</label><input className="cf-input" value={data.plState} onChange={e => set("plState", e.target.value)} placeholder="CA" /></div>
+                <div><label style={lbl}>ZIP</label><input className="cf-input" value={data.plZip} onChange={e => set("plZip", e.target.value)} placeholder="90210" /></div>
               </div>
             </>}
 
@@ -545,9 +545,4 @@ export default function Home() {
 // ── Shared styles ──────────────────────────────────────────────────────────
 const lbl: React.CSSProperties = {
   display: "block", fontSize: 13, fontWeight: 700, color: "#555", marginBottom: 6, marginTop: 14,
-};
-const inp: React.CSSProperties = {
-  width: "100%", padding: "11px 14px", borderRadius: 8, border: "1.5px solid #ddd", fontSize: 14,
-  outline: "none", boxSizing: "border-box", fontFamily: "inherit", background: "#fafafa",
-  color: "#000000",
 };

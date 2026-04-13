@@ -18,18 +18,34 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Ensure typed text is always black regardless of OS color scheme */
-input,
-textarea,
-select {
-  color: #000000 !important;
-  -webkit-text-fill-color: #000000 !important;
+/* ── Form field base class ──────────────────────────────────────────────── */
+/*
+ * All ClaimFlow form inputs, textareas, and selects use .cf-input.
+ * Color is set here (not inline) so it is centrally controlled and
+ * impossible for OS dark-mode inheritance to override.
+ */
+.cf-input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: #fafafa;
+  /* Always render user-entered text in solid black */
+  color: #000000;
+  -webkit-text-fill-color: #000000;
 }
 
-/* Placeholder text is a lighter gray so it's visually distinct */
-input::placeholder,
-textarea::placeholder {
-  color: #999999;
-  -webkit-text-fill-color: #999999;
-  opacity: 1; /* Firefox lowers opacity by default */
+.cf-input::placeholder {
+  color: #9ca3af;          /* accessible medium gray */
+  -webkit-text-fill-color: #9ca3af;
+  opacity: 1;              /* Firefox lowers placeholder opacity by default */
+}
+
+.cf-input:focus {
+  border-color: #0f2850;
+  box-shadow: 0 0 0 2px rgba(15, 40, 80, 0.12);
 }
