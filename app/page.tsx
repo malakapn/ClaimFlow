@@ -263,7 +263,7 @@ export default function Home() {
         <p style={{ color: "rgba(255,255,255,0.75)", fontSize: 18, maxWidth: 560, margin: "0 auto 36px", lineHeight: 1.7 }}>
           Answer 5 simple questions. Get a court-ready PDF packet — case narrative, filing checklist, and hearing script — in minutes.
         </p>
-        <button onClick={() => setStep(1)} style={{ background: "#e8b84b", color: "#0f2850", border: "none", borderRadius: 8, padding: "16px 44px", fontWeight: 800, cursor: "pointer", fontSize: 18, boxShadow: "0 4px 24px rgba(232,184,75,0.4)" }}>
+        <button onClick={() => setStep(1)} style={{ background: "#e8b84b", color: "#0f2850", border: "none", borderRadius: 8, padding: "16px 44px", fontWeight: 800, cursor: "pointer", fontSize: 18 }}>
           Start My Claim — Free →
         </button>
         <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 12, marginTop: 14 }}>No account required · Pay only when you download</p>
