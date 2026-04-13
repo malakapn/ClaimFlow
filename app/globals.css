@@ -18,12 +18,13 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ── Form field base class ──────────────────────────────────────────────── */
-/*
- * All ClaimFlow form inputs, textareas, and selects use .cf-input.
- * Color is set here (not inline) so it is centrally controlled and
- * impossible for OS dark-mode inheritance to override.
- */
+/* ── Form field base class ──────────────────────────────────────────────────
+ * .cf-input owns ALL field styling. Text-visibility props use !important so
+ * Tailwind preflight, UA stylesheets, and inherited dark-mode color cannot
+ * override them. The inline `inp` object in page.tsx mirrors the four
+ * visibility props as a second line of defence (inline > class for non-
+ * !important rules; class !important > inline for autofill states).
+ * ────────────────────────────────────────────────────────────────────────── */
 .cf-input {
   width: 100%;
   padding: 11px 14px;
@@ -34,18 +35,42 @@ body {
   box-sizing: border-box;
   font-family: inherit;
   background: #fafafa;
-  /* Always render user-entered text in solid black */
-  color: #000000;
-  -webkit-text-fill-color: #000000;
+
+  /* Visibility – !important blocks Tailwind preflight + UA overrides */
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
+  caret-color: #000000 !important;
+  opacity: 1 !important;
 }
 
+/* Placeholder stays a lighter gray for contrast / accessibility */
 .cf-input::placeholder {
-  color: #9ca3af;          /* accessible medium gray */
-  -webkit-text-fill-color: #9ca3af;
-  opacity: 1;              /* Firefox lowers placeholder opacity by default */
+  color: #9ca3af !important;
+  -webkit-text-fill-color: #9ca3af !important;
+  opacity: 1 !important;
 }
 
 .cf-input:focus {
   border-color: #0f2850;
   box-shadow: 0 0 0 2px rgba(15, 40, 80, 0.12);
+}
+
+/* ── Chrome / Edge autofill override ────────────────────────────────────────
+ * Browsers inject their own UA !important rules for :-webkit-autofill that
+ * override -webkit-text-fill-color and background-color. Counter-measures:
+ *   1. Re-assert -webkit-text-fill-color with !important on the pseudo-class.
+ *   2. Paint over the autofill background with a large inset box-shadow
+ *      (background-color itself cannot be overridden, but box-shadow can).
+ *   3. Delay the background-color transition 5000 s so it never fires.
+ * ────────────────────────────────────────────────────────────────────────── */
+.cf-input:-webkit-autofill,
+.cf-input:-webkit-autofill:hover,
+.cf-input:-webkit-autofill:focus,
+.cf-input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000000 !important;
+  -webkit-box-shadow: 0 0 0px 1000px #fafafa inset !important;
+  box-shadow: 0 0 0px 1000px #fafafa inset !important;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #000000 !important;
+  opacity: 1 !important;
 }
