@@ -12,29 +12,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Ensure typed text is always solid and readable */
+/* Ensure typed text is always black regardless of OS color scheme */
 input,
 textarea,
 select {
-  color: #111111;
+  color: #000000 !important;
+  -webkit-text-fill-color: #000000 !important;
 }
 
 /* Placeholder text is a lighter gray so it's visually distinct */
 input::placeholder,
 textarea::placeholder {
   color: #999999;
+  -webkit-text-fill-color: #999999;
   opacity: 1; /* Firefox lowers opacity by default */
 }
