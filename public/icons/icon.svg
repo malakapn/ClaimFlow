@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Navy background with rounded corners -->
+  <rect width="512" height="512" rx="80" fill="#0f2850"/>
+  <!-- Balance beam horizontal bar -->
+  <rect x="96" y="196" width="320" height="16" rx="8" fill="#e8b84b"/>
+  <!-- Center vertical post -->
+  <rect x="248" y="108" width="16" height="268" rx="8" fill="#e8b84b"/>
+  <!-- Top pivot knob -->
+  <circle cx="256" cy="116" r="22" fill="#e8b84b"/>
+  <!-- Left pan string -->
+  <rect x="129" y="212" width="8" height="80" rx="4" fill="#e8b84b"/>
+  <!-- Right pan string -->
+  <rect x="375" y="212" width="8" height="80" rx="4" fill="#e8b84b"/>
+  <!-- Left pan bowl arc -->
+  <path d="M96 292 Q133 318 170 292" stroke="#e8b84b" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- Right pan bowl arc -->
+  <path d="M342 292 Q379 318 416 292" stroke="#e8b84b" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- Base platform -->
+  <rect x="214" y="372" width="84" height="16" rx="8" fill="#e8b84b"/>
+</svg>

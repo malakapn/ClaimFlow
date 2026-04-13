@@ -24,3 +24,17 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure typed text is always solid and readable */
+input,
+textarea,
+select {
+  color: #111111;
+}
+
+/* Placeholder text is a lighter gray so it's visually distinct */
+input::placeholder,
+textarea::placeholder {
+  color: #999999;
+  opacity: 1; /* Firefox lowers opacity by default */
+}

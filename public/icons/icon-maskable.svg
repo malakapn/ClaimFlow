@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Full-bleed navy background (safe zone is inner 80%) -->
+  <rect width="512" height="512" fill="#0f2850"/>
+  <!-- Balance beam — scaled inward for maskable safe zone -->
+  <rect x="120" y="212" width="272" height="14" rx="7" fill="#e8b84b"/>
+  <!-- Center post -->
+  <rect x="249" y="130" width="14" height="234" rx="7" fill="#e8b84b"/>
+  <!-- Pivot -->
+  <circle cx="256" cy="137" r="20" fill="#e8b84b"/>
+  <!-- Left string -->
+  <rect x="152" y="226" width="7" height="68" rx="3" fill="#e8b84b"/>
+  <!-- Right string -->
+  <rect x="353" y="226" width="7" height="68" rx="3" fill="#e8b84b"/>
+  <!-- Left pan -->
+  <path d="M120 294 Q155 317 190 294" stroke="#e8b84b" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- Right pan -->
+  <path d="M322 294 Q357 317 392 294" stroke="#e8b84b" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <!-- Base -->
+  <rect x="220" y="360" width="72" height="14" rx="7" fill="#e8b84b"/>
+</svg>

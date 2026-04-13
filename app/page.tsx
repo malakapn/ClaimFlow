@@ -549,5 +549,5 @@ const lbl: React.CSSProperties = {
 const inp: React.CSSProperties = {
   width: "100%", padding: "11px 14px", borderRadius: 8, border: "1.5px solid #ddd", fontSize: 14,
   outline: "none", boxSizing: "border-box", fontFamily: "inherit", background: "#fafafa",
-  color: "#000",
+  color: "#111111",
 };
