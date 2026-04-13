@@ -112,7 +112,7 @@ async function generatePDF(data: ClaimData, tier: Tier) {
   doc.setFont("helvetica", "normal");
   doc.setFontSize(10);
   doc.setTextColor(20, 20, 20);
-  const narrative = `${data.plName} brings this small claims action against ${data.defName} arising from ${CLAIM_TYPES.find(c => c.id === data.claimType)?.label?.toLowerCase() || "a dispute"} on or about ${data.incidentDate}. ${data.incidentDesc}`;
+  const script = `Good morning / afternoon, Your Honor. My name is ${data.plName}, and I am the plaintiff in this matter.\n\nI am here today because ${data.defName} owes me $${data.amountTotal} stemming from ${data.incidentDesc}\n\nI have evidence of this claim, including:\n${data.evidence || "Documentation available upon request"}\n\nI respectfully request judgment in the amount of $${data.amountTotal} plus court costs. Thank you.`;
   const narLines = doc.splitTextToSize(narrative, W - margin * 2);
   doc.text(narLines, margin, y);
   y += narLines.length * 13 + 16;
